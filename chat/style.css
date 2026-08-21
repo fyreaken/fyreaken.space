@@ -20,3 +20,4 @@ label{display:block;margin:14px 0;color:#c7ccd4;font-size:13px}label input{displ
 .primary{width:100%;padding:11px}.text-button{margin-top:14px;padding:4px 0;background:transparent;color:#8f9cff}.error{color:#ff6b6b;min-height:20px;margin-top:10px}
 .availability-buttons{display:grid;gap:10px;margin:18px 0}.green,.red,.secondary{padding:12px;color:#fff}.green{background:#199447}.red{background:#d53b3b}.secondary{background:#343a44;width:100%}
 @media(max-width:700px){.bottom{grid-template-columns:1fr}.messages{height:55vh}.composer button{padding:0 13px}}
+.header-buttons{display:flex;align-items:center;gap:10px}.admin-button{background:#eab308;color:#111827;padding:10px 16px;font-weight:700}.admin-button:hover{filter:brightness(1.08)}

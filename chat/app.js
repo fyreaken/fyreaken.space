@@ -45,27 +45,7 @@ const password = $("password");
 
 const adminDialog = $("adminDialog");
 
-// Admin controls button is created dynamically so no HTML/CSS file changes are required.
-const adminButton = document.createElement("button");
-adminButton.id = "adminButton";
-adminButton.type = "button";
-adminButton.textContent = "fyreakenspace controls";
-adminButton.hidden = true;
-adminButton.style.cssText = [
-  "display:none",
-  "margin-left:10px",
-  "background:#eab308",
-  "color:#111827",
-  "border:0",
-  "border-radius:8px",
-  "padding:10px 16px",
-  "font-weight:700",
-  "cursor:pointer"
-].join(";");
-
-if (loginButton && loginButton.parentElement) {
-  loginButton.parentElement.insertBefore(adminButton, loginButton);
-}
+const adminButton = $("adminButton");
 
 let mode = "login";
 let currentProfile = null;
@@ -108,8 +88,11 @@ function updateUI() {
 
   loginButton.textContent = logged ? "Logout" : "Login";
 
-  adminButton.hidden = !(logged && currentProfile?.is_admin);
-  adminButton.style.display = (logged && currentProfile?.is_admin) ? "inline-block" : "none";
+  adminButton.hidden = !(
+    logged &&
+    currentProfile?.username === "fyreakenspace" &&
+    currentProfile?.is_admin === true
+  );
 
   messageInput.disabled = !logged;
   sendButton.disabled = !logged;
@@ -231,7 +214,11 @@ loginButton.onclick = async () => {
 };
 
 adminButton.onclick = () => {
-  if (!currentProfile?.is_admin) return;
+  if (
+    currentProfile?.username !== "fyreakenspace" ||
+    currentProfile?.is_admin !== true
+  ) return;
+
   adminDialog.showModal();
 };
 
