@@ -170,7 +170,7 @@ function setAuthMode(newMode) {
   mode = newMode;
 
   authTitle.textContent =
-    mode === "login" ? "Login" : "Create account";
+    mode === "login" ? "Login" : "Create an account";
 
   authDescription.textContent =
     mode === "login"
