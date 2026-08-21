@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fyreakenspace Live Chat</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <main class="page">
+    <section class="chat-card">
+      <header class="header">
+        <div>
+          <h1>Live Chat</h1>
+          <div id="currentUser" class="subtle">Not logged in</div>
+        </div>
+        <button id="loginButton" class="login">Login</button>
+      </header>
+
+      <div id="messages" class="messages" aria-live="polite"></div>
+
+      <div class="bottom">
+        <form id="messageForm" class="composer">
+          <input id="messageInput" maxlength="500" autocomplete="off"
+                 placeholder="Log in to send a message..." disabled>
+          <button id="sendButton" type="submit" disabled>Send</button>
+        </form>
+
+        <aside class="availability">
+          <div class="label">fyreakenspace status</div>
+          <div id="adminStatus" class="status offline">fyreakenspace offline</div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="authDialog">
+    <div class="dialog">
+      <button class="x" id="closeAuth">×</button>
+      <h2 id="authTitle">Login</h2>
+      <p id="authDescription" class="subtle">Log in to join the chat.</p>
+
+      <form id="authForm">
+        <label>Username
+          <input id="username" required maxlength="24" autocomplete="username"
+                 pattern="[A-Za-z0-9_-]{2,24}">
+        </label>
+        <label>Password
+          <input id="password" type="password" required minlength="8" maxlength="128"
+                 autocomplete="current-password">
+        </label>
+        <button id="authSubmit" class="primary" type="submit">Login</button>
+      </form>
+
+      <button id="switchAuth" class="text-button">Create an account instead</button>
+      <div id="authError" class="error"></div>
+    </div>
+  </dialog>
+
+  <dialog id="adminDialog">
+    <div class="dialog">
+      <h2>fyreakenspace controls</h2>
+      <p class="subtle">Choose whether you are available. Everyone can see this status.</p>
+      <div class="availability-buttons">
+        <button id="onlineButton" class="green">fyreakenspace online</button>
+        <button id="offlineButton" class="red">fyreakenspace offline</button>
+      </div>
+      <button id="closeAdmin" class="secondary">Close</button>
+    </div>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>

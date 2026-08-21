@@ -1,0 +1,22 @@
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:#101216;color:#f5f6f7;font-family:Arial,Helvetica,sans-serif}
+.page{min-height:100vh;display:grid;place-items:center;padding:24px}
+.chat-card{width:min(1000px,100%);background:#1a1d23;border:1px solid #30343c;border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.header{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid #30343c}
+h1{font-size:22px;margin:0 0 4px}h2{margin-top:0}.subtle{color:#9ca4b0;font-size:13px}
+button,input{font:inherit}button{border:0;border-radius:9px;cursor:pointer}
+.login,.primary,.composer button{background:#5865f2;color:#fff}.login{padding:10px 17px}
+.messages{height:440px;overflow-y:auto;padding:18px;background:#111318}
+.message{background:#20242b;border-radius:10px;padding:10px 12px;margin-bottom:10px;overflow-wrap:anywhere}
+.name{font-weight:700;margin-right:8px}.time{font-size:11px;color:#777f8c}
+.bottom{display:grid;grid-template-columns:1fr 245px;gap:14px;padding:16px;border-top:1px solid #30343c}
+.composer{display:flex;gap:8px}.composer input{min-width:0;flex:1;padding:12px;border-radius:9px;border:1px solid #353b45;background:#0f1115;color:#fff}.composer button{padding:0 18px}
+button:disabled{opacity:.5;cursor:not-allowed}
+.availability{border:1px solid #353b45;border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;justify-content:center}.label{font-size:11px;color:#8d96a4;margin-bottom:5px}
+.status{font-weight:700}.online{color:#49d17d}.offline{color:#ff5252}
+dialog{border:1px solid #3b414b;border-radius:14px;background:#1a1d23;color:#fff;padding:0;width:min(420px,calc(100% - 30px))}dialog::backdrop{background:rgba(0,0,0,.72)}
+.dialog{padding:24px;position:relative}.x{position:absolute;right:14px;top:10px;background:transparent;color:#aaa;font-size:25px}
+label{display:block;margin:14px 0;color:#c7ccd4;font-size:13px}label input{display:block;width:100%;margin-top:7px;padding:11px;border:1px solid #3b414b;border-radius:8px;background:#101216;color:#fff}
+.primary{width:100%;padding:11px}.text-button{margin-top:14px;padding:4px 0;background:transparent;color:#8f9cff}.error{color:#ff6b6b;min-height:20px;margin-top:10px}
+.availability-buttons{display:grid;gap:10px;margin:18px 0}.green,.red,.secondary{padding:12px;color:#fff}.green{background:#199447}.red{background:#d53b3b}.secondary{background:#343a44;width:100%}
+@media(max-width:700px){.bottom{grid-template-columns:1fr}.messages{height:55vh}.composer button{padding:0 13px}}
