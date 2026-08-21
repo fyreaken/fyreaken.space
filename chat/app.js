@@ -98,14 +98,14 @@ function updateUI() {
   sendButton.disabled = !logged;
 
   messageInput.placeholder = logged
-    ? "Type a message..."
-    : "Log in to send a message...";
+    ? "|"
+    : "|";
 }
 
 function renderStatus(available) {
   adminStatus.textContent = available
-    ? "fyreakenspace online"
-    : "fyreakenspace offline";
+    ? "online"
+    : "offline";
 
   adminStatus.className = `status ${available ? "online" : "offline"}`;
 }
@@ -174,16 +174,16 @@ function setAuthMode(newMode) {
 
   authDescription.textContent =
     mode === "login"
-      ? "Log in to join the chat."
-      : "Choose the username other people will see.";
+      ? " "
+      : " ";
 
   authSubmit.textContent =
     mode === "login" ? "Login" : "Create account";
 
   switchAuth.textContent =
     mode === "login"
-      ? "Create an account instead"
-      : "I already have an account";
+      ? "Create an account"
+      : "Already have an account?";
 
   password.autocomplete =
     mode === "login" ? "current-password" : "new-password";
