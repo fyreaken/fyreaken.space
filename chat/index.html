@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Fyreakenspace Live Chat</title>
+  <title>chat</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
@@ -12,11 +12,11 @@
     <section class="chat-card">
       <header class="header">
         <div>
-          <h1>Live Chat</h1>
+          <h1> </h1>
           <div id="currentUser" class="subtle">Not logged in</div>
         </div>
         <div class="header-buttons">
-          <button id="adminButton" class="admin-button" hidden>fyreakenspace controls</button>
+          <button id="adminButton" class="admin-button" hidden>online?</button>
           <button id="loginButton" class="login">Login</button>
         </div>
       </header>
@@ -26,13 +26,13 @@
       <div class="bottom">
         <form id="messageForm" class="composer">
           <input id="messageInput" maxlength="500" autocomplete="off"
-                 placeholder="Log in to send a message..." disabled>
+                 placeholder=" " disabled>
           <button id="sendButton" type="submit" disabled>Send</button>
         </form>
 
         <aside class="availability">
-          <div class="label">fyreakenspace status</div>
-          <div id="adminStatus" class="status offline">fyreakenspace offline</div>
+          <div class="label">fyreaken status</div>
+          <div id="adminStatus" class="status offline">offline</div>
         </aside>
       </div>
     </section>
@@ -56,7 +56,7 @@
         <button id="authSubmit" class="primary" type="submit">Login</button>
       </form>
 
-      <button id="switchAuth" class="text-button">Create an account instead</button>
+      <button id="switchAuth" class="text-button">Create an account</button>
       <div id="authError" class="error"></div>
     </div>
   </dialog>
@@ -64,10 +64,10 @@
   <dialog id="adminDialog">
     <div class="dialog">
       <h2>fyreakenspace controls</h2>
-      <p class="subtle">Choose whether you are available. Everyone can see this status.</p>
+      <p class="subtle">Online?</p>
       <div class="availability-buttons">
-        <button id="onlineButton" class="green">fyreakenspace online</button>
-        <button id="offlineButton" class="red">fyreakenspace offline</button>
+        <button id="onlineButton" class="green">yes</button>
+        <button id="offlineButton" class="red">no</button>
       </div>
       <button id="closeAdmin" class="secondary">Close</button>
     </div>
