@@ -7,30 +7,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 .overlay-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.85);
-  display: flex;
-  justify-content: center;    /* Horizontal center */
-  align-items: flex-start;    /* Move to top instead of center */
-  padding-top: 2rem;          /* Add space from top */
-  z-index: 999;
-  max-height: 100vh;
-  overflow-y: auto;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100dvh;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+    z-index: 999;
+    /* The overlay itself handles scrolling */
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .overlay-content {
-  background-color: rgba(0, 0, 0, 0.75);
-  color: white;
-  padding: 2rem;
-  width: 60%;
-  max-width: 800px;
-  max-height: 90vh;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 2rem;
+    width: 60%;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    /* Important:
+       Let the content determine the height.
+       Do not constrain it to the viewport. */
+    height: auto;
+    max-height: none;
+    /* Prevent flexbox from shrinking the content */
+    flex-shrink: 0;
 }
 
 #FROSTsection a, #FROSTonclick a , #CAMOonclick a, #STREETGAMEonclick a, #DAYTOENDonclick a, #LEGOUNIVERSEonclick a, #FALLOUT76onclick a, #PS4onclick a {
@@ -52,19 +60,23 @@ background:rgb(97, 97, 97);
   background:rgb(54, 54, 54);
 }
 
-/* Mobile override: uncenter content strictly */
+/* Mobile */
 @media screen and (max-width: 900px) {
-  .overlay-modal {
-    justify-content: flex-start !important;
-    align-items: flex-start !important;
-  }
 
-  .overlay-content {
-    margin-top: 2rem;
-    padding: 1rem;
-    width: 100%;
-    height: 100%;
-  }
+    .overlay-modal {
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 2rem 0;
+    }
+
+    .overlay-content {
+        width: 100%;
+        max-width: none;
+        padding: 1rem;
+        height: auto;
+        max-height: none;
+        box-sizing: border-box;
+    }
 }
 </style>
 
@@ -217,7 +229,7 @@ requestAnimationFrame(draw);
   <a target="_parent" href="https://fyreaken.space/contact/"><img style='border:2px solid #2f4881' src="icons/contact.png" width="96" alt=""></a>
     <br>
   ﾠContact Us
-  <br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br>
 </div>
 
 <div id="system-configuration-content" class="custom-page-content hidden">
@@ -237,12 +249,13 @@ requestAnimationFrame(draw);
   <a target="_parent" href="https://buymeacoffee.com/fyreaken"><img style='border:2px solid #2f4881' src="img/links/bmc.png" width="96" alt=""></a>
     <br>
   ﾠﾠﾠTwitterㅤㅤﾠBuy a coffeeㅤㅤㅤㅤ
-  <br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br>
 </div>
 
 <div id="memory-card-content" class="custom-page-content hidden">
   <script src="index.js"></script>
-  <h2 class="text-2xl font-bold mb-4">Projects</h2><br><br><br>
+  <h2 class="text-2xl font-bold mb-4">Projects</h2>
+  <br><br><br><br>
   <p>If you are interested in my work and want further details, please look at my <a target="_parent" href="https://www.linkedin.com/in/fyreakendev/">LinkedIn</a>.<br>
     I'm based in the United Kingdom, around Devon and Cornwall.<br><br><br>
 
@@ -314,12 +327,13 @@ requestAnimationFrame(draw);
         <br><br>
       </div>
 
-  </p><br><br>
+  </p><br><br><br>
 </div>
 
 <div id="cd-dvd-content" class="custom-page-content hidden">
   <script src="index.js"></script>
-  <h2 class="text-2xl font-bold mb-4">Modding</h2><br><br><br><br>
+  <h2 class="text-2xl font-bold mb-4">Modding</h2>
+  <br><br><br><br><br><br><br>
           <!-- LEGO UNIVERSE SECTION -->
           <div id="LEGOUNIVERSEonclick">
           <img src="img/legouniverse.png" width="372" class="img-fluid" alt=""><a href="#LEGOUNIVERSE" style="font-size: 50px"; onclick="LEGOUNIVERSEfunction();">  ▼</a></div>
@@ -335,7 +349,7 @@ requestAnimationFrame(draw);
               <h5>Frostburgh (22/01/24)<a href="#frostburgh" onclick="FROSTfunction();">  ▼</a></h5>
               <div id="FROSTsection" style="display:none"><br>
 
-                <h5>⸺ Introducing Frostburgh</h5><br>
+                <br><h5>⸺ Introducing Frostburgh</h5><br>
                 <h6 style="font-size: 14px">Aims to restore the Frostburgh seasonal zone and content, including missions & racing.</h6><br>
                 <img src="img/frostburgh.jpg" width="792" class="img-fluid" alt=""><br><br>
                 <h5>⸺ Installation<a href="#guide" onclick="INSTALLfunction();">  ▼</a></h5>
@@ -410,9 +424,9 @@ requestAnimationFrame(draw);
               <div id="CAMOonclick">
                 <h5>Camouflage<a href="#camouflage" onclick="CAMOfunction();">  ▼</a></h5>
                 <div id="CAMOsection" style="display:none">
-                  <br><p>⸺ Introducing the Camouflage mod</p><br>
+                  <br><br><p>⸺ Introducing the Camouflage mod</p><br>
                   <p>Blend in with the Maelstrom!</p><br>
-                  <h6 style="font-size: 14px">Adjusts disguise items allowing weapons and off-hand items be used whilst wearing a disguise, 
+                  <h6 style="font-size: 14px">Adjusts disguise items allowing weapons and off-hand items to be used whilst wearing a disguise, 
                     adjusts disguise item stats, adds variants of diguises, camouflaged versions of original disguises and variants, 
                     a grey skateboard mount and a silver horse mount. </h6><br>
                   
@@ -437,13 +451,14 @@ requestAnimationFrame(draw);
             </p>
           
           </div>
-    <br><br><br>
+    <br><br><br><br><br><br><br>
 </div>
 
 <div id="network-settings-content" class="custom-page-content hidden">
   <script src="index.js"></script>
   <img src="icons/undefined.PNG" style="width: 271px; height: 71px;">
-  <p>a lego universe server</p><br><br><br><br>
+  <p>a lego universe server</p>
+  <br><br><br><br>
   <p>register interest by joining the waiting room.</p><br>
 
   <p>undefined is a modded Lego Universe server.</p>
@@ -455,7 +470,7 @@ requestAnimationFrame(draw);
   <p>more information</p>
   <a href="https://discord.gg/r9BCcfaXkF"><img src="icons/enter.png" width="96" class="img-fluid" alt=""></a><br><br>
   <img src="icons/image1.png" style="width: 623px">
-  <br><br><br>
+  <br><br><br><br><br>
 </div>
 
 </body>

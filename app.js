@@ -100,65 +100,66 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 function openOverlay(icon) {
-    // Remove existing overlays if any
+
+    // Remove any existing overlays
     document.querySelectorAll(".overlay-modal").forEach(el => el.remove());
-    
-const overlay = document.createElement("div");
-overlay.className = "overlay-modal";
 
-const dialogBox = document.createElement("div");
-dialogBox.className = "overlay-content";
+    const overlay = document.createElement("div");
+    overlay.className = "overlay-modal";
 
+    const dialogBox = document.createElement("div");
+    dialogBox.className = "overlay-content";
 
-    const pageId = icon.name.replace(/\//g, "-").replace(/\s+/g, "-").toLowerCase() + "-content";
+    const pageId =
+        icon.name
+            .replace(/\//g, "-")
+            .replace(/\s+/g, "-")
+            .toLowerCase() + "-content";
+
     const pageContent = document.getElementById(pageId);
-    if (pageContent) {
-      const existing = pageContent.cloneNode(true);
-      existing.classList.remove("hidden");
-      dialogBox.appendChild(existing);
-    const closeBtn = document.createElement("button");
-    closeBtn.textContent = "Close";
-    closeBtn.style.cssText = "background-color: #333;color: white;padding: 0.4rem 1.2rem;border: none;border-radius: 2px;cursor: pointer;font-size: 1rem;font-family: sans-serif;box-shadow: none;text-align: center;display: inline-block;";
-    closeBtn.className = "close-btn";
-    closeBtn.onclick = () => overlay.remove();
-    dialogBox.appendChild(closeBtn);
+
+    if (!pageContent) {
+        console.warn(`No page content found for: ${pageId}`);
+        return;
     }
-overlay.appendChild(dialogBox);
 
-document.body.appendChild(overlay);
-
-  }
-});
-
-
-function openOverlay(icon) {
-  // Remove any existing overlays
-  document.querySelectorAll(".overlay-modal").forEach(el => el.remove());
-
-  const overlay = document.createElement("div");
-  overlay.className = "overlay-modal";
-
-  const dialogBox = document.createElement("div");
-  dialogBox.className = "overlay-content";
-
-  const pageId = icon.name.replace(/\//g, "-").replace(/\s+/g, "-").toLowerCase() + "-content";
-  const pageContent = document.getElementById(pageId);
-
-  if (pageContent) {
+    // Clone the original content
     const fresh = pageContent.cloneNode(true);
     fresh.classList.remove("hidden");
+
+    // Add content to the overlay
     dialogBox.appendChild(fresh);
 
+    // Create close button
     const closeBtn = document.createElement("button");
+
     closeBtn.textContent = "Close";
     closeBtn.className = "close-btn";
-    closeBtn.style.cssText = "background-color: #333;color: white;padding: 0.4rem 1.2rem;border: none;border-radius: 2px;cursor: pointer;font-size: 1rem;font-family: sans-serif;box-shadow: none;text-align: center;display: inline-block;";
-    closeBtn.onclick = () => {
-      overlay.remove();
-    };
-    dialogBox.appendChild(closeBtn);
-  }
 
-  overlay.appendChild(dialogBox);
-  document.body.appendChild(overlay);
-}
+    closeBtn.style.cssText = `
+        background-color: #333;
+        color: white;
+        padding: 0.4rem 1.2rem;
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-family: sans-serif;
+        box-shadow: none;
+        text-align: center;
+        display: block;
+    `;
+
+    closeBtn.onclick = () => {
+        overlay.remove();
+    };
+
+    // Button comes AFTER the content
+    dialogBox.appendChild(closeBtn);
+
+    // Add dialog to overlay
+    overlay.appendChild(dialogBox);
+
+    // Add overlay to page
+    document.body.appendChild(overlay);
+}})
