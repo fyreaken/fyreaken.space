@@ -60,6 +60,19 @@ background:rgb(97, 97, 97);
   background:rgb(54, 54, 54);
 }
 
+.overlaycontentcontainer {
+  display: flex;
+  gap: 20px;
+}
+
+.overlaycontentitem {
+  text-align: center;
+}
+
+.overlaycontentitem p {
+  margin: 8px 0 0;
+}
+
 /* Mobile */
 @media screen and (max-width: 900px) {
 
@@ -218,17 +231,35 @@ requestAnimationFrame(draw);
   <script src="index.js"></script>
   <h2 class="text-2xl font-bold mb-4">The Exchange</h2>
   <br><br><br><br><br><br><br>
-  <a target="_parent" href="https://www.ebay.co.uk/usr/fyreakenspace"><img style='border:2px solid #2f4881' src="icons/ebay.png" width="96" alt=""></a>
-  <img src="img/br.png" width="5" alt="">
-  <a target="_parent" href="https://store.bricklink.com/fyreaken"><img style='border:2px solid #2f4881' src="icons/bricklink.png" width="96" alt=""></a>
-  <img src="img/br.png" width="5" alt="">
-  <a target="_parent" href="https://www.etsy.com/shop/fyreakenspace"><img style='border:2px solid #2f4881' src="icons/etsy.png" width="96" alt=""></a>
-    <br>
-  ㅤㅤeBayㅤㅤㅤㅤBricklink       Etsy
-  <br><br>
-  <a target="_parent" href="https://fyreaken.space/contact/"><img style='border:2px solid #2f4881' src="icons/contact.png" width="96" alt=""></a>
-    <br>
-   Contact Us
+<div class="overlaycontentcontainer">
+  <div class="overlaycontentitem">
+    <a href="https://www.ebay.co.uk/usr/fyreakenspace">
+      <img style='border:2px solid #2f4881' src="icons/ebay.png" width="96" alt="">
+    </a>
+    <p>eBay</p>
+  </div>
+  <div class="overlaycontentitem">
+    <a href="https://store.bricklink.com/fyreaken">
+      <img style='border:2px solid #2f4881' src="icons/bricklink.png" width="96" alt="">
+    </a>
+    <p>Bricklink</p>
+  </div>
+  <div class="overlaycontentitem">
+    <a href="https://www.etsy.com/shop/fyreakenspace">
+      <img style='border:2px solid #2f4881' src="icons/etsy.png" width="96" alt="">
+    </a>
+    <p>Etsy</p>
+  </div>
+</div>
+          <br><br>
+<div class="overlaycontentcontainer">
+  <div class="overlaycontentitem">
+    <a href="https://fyreaken.space/contact/">
+      <img style='border:2px solid #2f4881' src="icons/contact.png" width="96" alt="">
+    </a>
+    <p>Contact Us</p>
+  </div>
+</div>
   <br><br><br><br><br><br><br><br>
 </div>
 
@@ -236,19 +267,41 @@ requestAnimationFrame(draw);
   <script src="index.js"></script>
   <h2 class="text-2xl font-bold mb-4">Links</h2>
   <br><br><br><br><br><br><br>
-  <a target="_parent" href="https://steamcommunity.com/id/Fyreaken"><img style='border:2px solid #2f4881' src="img/links/steam.png" width="96" alt=""></a>
-  <img src="img/br.png" width="5" alt="">
-  <a target="_parent" href="https://github.com/fyreaken"><img style='border:2px solid #2f4881' src="img/links/githu-b.png" width="96" alt=""></a>
-  <img src="img/br.png" width="5" alt="">
-  <a target="_parent" href="https://www.linkedin.com/in/fyreakendev/"><img style='border:2px solid #2f4881' src="img/links/linkedi-n.png" width="96" alt=""></a>
-    <br>
-     SteamㅤㅤㅤㅤGithubㅤㅤㅤﾠLinkedin
-  <br><br>
-  <a target="_parent" href="https://twitter.com/fyreaken"><img style='border:2px solid #2f4881' src="img/links/twitte-r.png" width="96" alt=""></a>
-  <img src="img/br.png" width="5" alt="">
-  <a target="_parent" href="https://buymeacoffee.com/fyreaken"><img style='border:2px solid #2f4881' src="img/links/bmc.png" width="96" alt=""></a>
-    <br>
-  ㅤ Twitterㅤㅤﾠ  Donate
+<div class="overlaycontentcontainer">
+  <div class="overlaycontentitem">
+    <a href="https://steamcommunity.com/id/Fyreaken">
+      <img style='border:2px solid #2f4881' src="img/links/steam.png" width="96" alt="">
+    </a>
+    <p>Steam</p>
+  </div>
+  <div class="overlaycontentitem">
+    <a href="https://github.com/fyreaken">
+      <img style='border:2px solid #2f4881' src="img/links/githu-b.png" width="96" alt="">
+    </a>
+    <p>Github</p>
+  </div>
+  <div class="overlaycontentitem">
+    <a href="https://www.linkedin.com/in/fyreakendev/">
+      <img style='border:2px solid #2f4881' src="img/links/linkedi-n.png" width="96" alt="">
+    </a>
+    <p>Linkedin</p>
+  </div>
+</div>
+          <br><br>
+<div class="overlaycontentcontainer">
+  <div class="overlaycontentitem">
+    <a href="https://twitter.com/fyreaken">
+      <img style='border:2px solid #2f4881' src="img/links/twitte-r.png" width="96" alt="">
+    </a>
+    <p>Twitter</p>
+  </div>
+  <div class="overlaycontentitem">
+    <a href="https://buymeacoffee.com/fyreaken">
+      <img style='border:2px solid #2f4881' src="img/links/bmc.png" width="96" alt="">
+    </a>
+    <p>Donate</p>
+  </div>
+</div>
   <br><br><br><br><br><br><br><br>
 </div>
 
